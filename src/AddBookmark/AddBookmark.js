@@ -1,4 +1,5 @@
 import React, { Component } from  'react';
+import { withRouter } from 'react-router-dom';
 import config from '../config'
 import './AddBookmark.css';
 
@@ -17,7 +18,6 @@ class AddBookmark extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    // get the form fields from the event
     const { title, url, description, rating } = e.target
     const bookmark = {
       title: title.value,
@@ -49,6 +49,7 @@ class AddBookmark extends Component {
         url.value = ''
         description.value = ''
         rating.value = ''
+        this.props.history.push('/')
         this.props.onAddBookmark(data)
       })
       .catch(error => {
@@ -137,4 +138,4 @@ class AddBookmark extends Component {
   }
 }
 
-export default AddBookmark;
+export default withRouter(AddBookmark);
