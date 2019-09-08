@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "https://keeleys-bookmark-app.now.sh",
+  "name": "bookmarks-app",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}
